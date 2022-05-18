@@ -1,5 +1,12 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 const Table = () => {
+
+    const [data, setData] = useState([]);
+    useEffect(() => {
+        axios.get("https://mysterious-sea-46191.herokuapp.com/api/all")
+            .then(res => { setData(res.data) })
+    }, [data])
     return (
         <div className='w-4/5 mx-auto'>
             <div className="overflow-x-auto mt-10">
@@ -13,21 +20,15 @@ const Table = () => {
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td>Cy Ganderton</td>
-                            <td>Quality Control Specialist</td>
-                            <td>Blue</td>
-                        </tr>
-                        <tr>
-                            <td>Hart Hagerty</td>
-                            <td>Desktop Support Technician</td>
-                            <td>Purple</td>
-                        </tr>
-                        <tr>
-                            <td>Brice Swyre</td>
-                            <td>Tax Accountant</td>
-                            <td>Red</td>
-                        </tr>
+                        {
+                            data.map((item, index) => <tr key={index}>
+                                <td>{item.taskName}</td>
+                                <td>{item.description}</td>
+                                <td>{item.taskDate}</td>
+                                <td>button</td>
+                            </tr>)
+                        }
+
                     </tbody>
                 </table>
             </div>
