@@ -9,7 +9,7 @@ const Taskbar = () => {
                 <div className="card-body ">
                     <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col justify-center items-center">
                         <input type="text" {...register("taskName", { required: true })} placeholder="Task Name" className="input input-bordered input-sm w-56 max-w-xs" />
-                        <textarea {...register("taskName", { required: true })} className="textarea textarea-bordered mt-4" placeholder="Description"></textarea>
+                        <textarea {...register("description", { required: true })} className="textarea textarea-bordered mt-4" placeholder="Description"></textarea>
                         <button type='submit' className=' btn-secondary mt-8 w-full text-white h-9 rounded-md'>Add</button>
                     </form>
                 </div>
