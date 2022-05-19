@@ -1,14 +1,15 @@
 import axios from 'axios';
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 const Taskbar = () => {
     const { register, handleSubmit } = useForm();
+    const [date, setDate] = useState(new Date());
     const onSubmit = data => {
         try {
             const taskName = data.taskName;
             const description = data.description;
-            const taskDate = "2020-01-01";
+            const taskDate = date.toDateString();
             axios.post('https://mysterious-sea-46191.herokuapp.com/api/tasks', {
                 taskName,
                 description,

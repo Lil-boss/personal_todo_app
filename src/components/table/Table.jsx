@@ -30,7 +30,7 @@ const Table = () => {
     }
     return (
         <div className='w-4/5 mx-auto'>
-            <div className="overflow-x-auto mt-10">
+            <div className="overflow-x-auto mt-10 mb-10">
                 <table className="table table-zebra w-full">
                     <thead>
                         <tr>
